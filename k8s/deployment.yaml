@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextjs-hello-world
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nextjs-hello-world
+  template:
+    metadata:
+      labels:
+        app: nextjs-hello-world
+    spec:
+      containers:
+        - name: nextjs-hello-world
+          image: sargodeveastuszvo6u1.azurecr.io/hello-world:v2
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nextjs-hello-world
+spec:
+  type: LoadBalancer
+  selector:
+    app: nextjs-hello-world
+  ports:
+    - port: 80
+      targetPort: 3000
