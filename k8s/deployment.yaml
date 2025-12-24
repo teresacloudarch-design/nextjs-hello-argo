@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: nextjs-hello-world
-          image: sargodeveastuszvo6u1.azurecr.io/hello-world:v2
+          image: sargodeveastuszvo6u1.azurecr.io/hello-world:b40e8d3383030415ece55af771a2cbde85b99f04
           ports:
             - containerPort: 3000
 ---
